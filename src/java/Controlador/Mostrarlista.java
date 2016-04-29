@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Controlador;
 
 import Modelo.Usuario;
@@ -10,77 +14,79 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *
+ * @author Null
+ */
+public class Mostrarlista extends HttpServlet {
 
-public class Buscar extends HttpServlet {
-
-  
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-     
-     String buscar = request.getParameter("txtbuscar");
-     String error = "";
-        if (buscar.equals("") || buscar == null) {
-            
-        error = "LOS CAMPOS ESTAN VACIOS!";
+        
+       String user = request.getParameter("txtusuario");
+       String pass = request.getParameter("txtpass");
+       String error = "";
+       
+        if (user.equals("") || user == null || pass.equals("") || pass == null) {
+          
+        error = "LOS CAMPOS ESTAN VACIOS";
         request.getSession().setAttribute("myError", error);
         request.getRequestDispatcher("error.jsp").forward(request, response);
         }
         
-        else
-        {
+        else{
         
-            
-    
-         
         ArrayList<Usuario> ListaU = (ArrayList<Usuario>)request.getSession().getAttribute("myUsers");
         
-        
-        
             if (ListaU==null) {
-                
-              error="NO EXISTEN USUARIOS!";
-              
-              request.getSession().setAttribute("myError", error);
-              request.getRequestDispatcher("error.jsp").forward(request, response);
+            error= "NO EXISTEN USUARIOS, CREE EL PRIMERO!";
+            request.getSession().setAttribute("myError", error);
+            request.getRequestDispatcher("error.jsp").forward(request, response);    
             }
             
             else{
             
-              int encotrado = 0;
-              
+            int encontrado = 0;
+            
                 for (int i = 0; i < ListaU.size(); i++) {
-                    
-                    if (ListaU.get(i).getUser().equals(buscar)) {
+                
+                    if (ListaU.get(i).getUser().equals(user) || ListaU.get(i).getPass().equals(pass)) {
                         
-                      String usser = ListaU.get(i).getUser();
-                      String pass = ListaU.get(i).getPass();
+                      String NuevoUser = ListaU.get(i).getUser();
+                      String Nuevopass = ListaU.get(i).getPass();
                       String nombre = ListaU.get(i).getNombre();
                       String apellido = ListaU.get(i).getApellido();
-                      int    edad = ListaU.get(i).getEdad();
+                      int edad = ListaU.get(i).getEdad();
                       
-                      Usuario u = new Usuario(usser, pass, nombre, apellido, edad);
+                      Usuario u = new Usuario(user, pass, nombre, apellido, edad);
                       
-                      request.getSession().setAttribute("myUserEncontrado", u);
-                      request.getRequestDispatcher("encontrado.jsp").forward(request, response);
-                      encotrado = 1;
+                      request.getSession().setAttribute("myUserPassed", u);
+                      request.getRequestDispatcher("mostrado.jsp").forward(request, response);
+                      encontrado = 1;
                         
                     }
     
                 }
                 
-                if (encotrado==0) {
-                  
-                    error="ERROR EN EL NOMBRE DE USUARIO, CONSIDERE MAYUS!";
-              
-                    request.getSession().setAttribute("myError", error);
-                    request.getRequestDispatcher("error.jsp").forward(request, response);  
+                if (encontrado==0) {
+                 error="ERROR EN LA CLAVE O EN EL NOMBRE DE USUARIO!";
+            request.getSession().setAttribute("myError", error);
+            request.getRequestDispatcher("error.jsp").forward(request, response); 
+                    
                 }
             }
+               
             
         }
-     
-        
-    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

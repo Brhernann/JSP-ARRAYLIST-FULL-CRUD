@@ -34,7 +34,7 @@ public class Registrar extends HttpServlet {
          
             error="LOS CAMPOS ESTÁN VACIOS!";
             
-            request.getSession().setAttribute("myErrror", error);
+            request.getSession().setAttribute("myError", error);
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
         
@@ -50,7 +50,7 @@ public class Registrar extends HttpServlet {
             {
              error="INGRESE NUMEROS VALIDOS!";
              
-            request.getSession().setAttribute("myErrror", error);
+            request.getSession().setAttribute("myError", error);
             request.getRequestDispatcher("error.jsp").forward(request, response);
             }
             
@@ -60,10 +60,10 @@ public class Registrar extends HttpServlet {
             
             if (ListaU==null) {
             
-             ListaU = new ArrayList<>();
+             ListaU = new ArrayList<Usuario>();
              ListaU.add(u);
              
-             request.getSession().setAttribute("myUsers", u);
+             request.getSession().setAttribute("myUsers", ListaU);
              request.getRequestDispatcher("exito.jsp").forward(request, response);
                      
             }
@@ -77,10 +77,10 @@ public class Registrar extends HttpServlet {
                  
                     if (ListaU.get(i).getUser().equals(user)) {
                         
-                        error = "LO SENTIMOS EL USUARIO YA EXISTE!, INTENTE CON OTRO";
-                        
-                        request.getSession().setAttribute("myError", error);
-                        request.getRequestDispatcher("error.jsp").forward(request, response);
+                        error="LO SENTIMOS EL USUARIO YA EXISTE!";
+             
+                  request.getSession().setAttribute("myError", error);
+                  request.getRequestDispatcher("error.jsp").forward(request, response);
                         encontrado = 1;
                         
                     }
@@ -91,11 +91,10 @@ public class Registrar extends HttpServlet {
                     
                 ListaU.add(u);
              
-                request.getSession().setAttribute("myUsers", u);
-                request.getRequestDispatcher("exito.jsp").forward(request, response);    
-                    
+                request.getSession().setAttribute("myUsers", ListaU);
+                request.getRequestDispatcher("exito.jsp").forward(request, response);
                 }
-                
+            
             }
             
         }

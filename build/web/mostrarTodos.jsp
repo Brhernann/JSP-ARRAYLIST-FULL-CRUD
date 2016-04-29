@@ -12,7 +12,14 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Lista de usuarios registrados</h1>
+        <h1>Inicie Session</h1>
+        
+        <form action="mostrarlista.do" method="POST">
+            
+            <input type="text" name="txtusuario" value="" /> User </br>
+            <input type="password" name="txtpass" value="" />Passworld</br></br>
+            <input type="submit" value="Entrar" name="boton" />
+        </form>
         
         
     </body>

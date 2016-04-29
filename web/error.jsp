@@ -13,5 +13,11 @@
     </head>
     <body>
         <h1>Ha ocurrido un grave error!</h1>
+        
+        <%
+         String error = (String)request.getSession().getAttribute("myError");
+         
+        out.print(error);
+        %>
     </body>
 </html>
