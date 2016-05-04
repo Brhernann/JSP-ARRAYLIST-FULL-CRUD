@@ -8,8 +8,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>JSP Page</title>
+    <style type="text/css">
+    body,td,th {
+	color: #0F9;
+}
+body {
+	background-color: #FFF;
+	background-image: url(Imagenes/fondo.jpg);
+}
+    a:link {
+	color: #9C3;
+}
+    </style>
     </head>
     <body>
         
@@ -17,8 +29,13 @@
     
     <form action="buscar.do" method="POST">
         
-        <input type="text" name="txtbuscar" value="" /> Ingrese Nombre de Usuario  </br>  </br>
-        <input type="submit" value="Buscar" name="btnbuscar" /> <a href="index.jsp">Inicio</a>
+        <p>
+          <input type="text" name="txtbuscar" value="" /> 
+          Ingrese Nombre de Usuario  </br>  </br>
+        </p>
+        <p>
+          <input type="submit" value="Buscar" name="btnbuscar" /> 
+          <a href="index.jsp">Inicio</a></p>
     </form>    
     </body>
 </html>

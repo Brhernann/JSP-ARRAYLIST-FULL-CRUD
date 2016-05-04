@@ -10,16 +10,28 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>JSP Page</title>
+    <style type="text/css">
+    body {
+	background-image: url(Imagenes/fondo.jpg);
+}
+    body,td,th {
+	color: #0F9;
+}
+    a:link {
+	color: #0F9;
+}
+    </style>
     </head>
-    <body>
-        <h1>Los usuario registrado estan aca!</h1>
+    <body background="Imagenes/fondo.jpg" text="#00FF99">
+    <h1> Los usuario registrado estan aca!</h1>
         
         
         <%
         
         Usuario u = (Usuario)request.getSession().getAttribute("myUserPassed");
+        
          ArrayList<Usuario> ListaU = (ArrayList<Usuario>) request.getSession().getAttribute("myUsers");
         
         %>
@@ -43,6 +55,6 @@
                 }
             %>
         </table>
-  
-    </body>
+                     
+</body>
 </html>

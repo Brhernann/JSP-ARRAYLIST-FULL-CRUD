@@ -8,8 +8,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>JSP Page</title>
+    <style type="text/css">
+    body {
+	background-image: url(Imagenes/fondo.jpg);
+}
+    body,td,th {
+	color: #0C9;
+}
+    </style>
     </head>
     <body>
         <h1>Ha ocurrido un grave error!</h1>

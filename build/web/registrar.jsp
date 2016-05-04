@@ -8,19 +8,44 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>JSP Page</title>
+    <style type="text/css">
+    body {
+	background-image: url(Imagenes/fondo.jpg);
+}
+    body,td,th {
+	color: #0F9;
+}
+    a:link {
+	color: #D6D6D6;
+}
+    </style>
     </head>
     <body>
         <h1>Bienvenido al registro de usuario!</h1>
         
         <form action="registrar.do" method="POST">
-            <input type="text" name="txtuser" value="" /> User </br>
+            <p>
+              <input type="text" name="txtuser" value="" /> 
+            User </p>
+            <p></br>
             <input type="password" name="txtpass" value="" /> Password  </br>
+            </p>
+            <p>
             <input type="text" name="txtnombre" value="" /> Nombre  </br>
-            <input type="text" name="txtapellido" value="" /> Apellido  </br>
-            <input type="text" name="txtedad" value="" /> Edad  </br> </br>
-            <input type="submit" value="Guardar" name="btguardar" /> <a href="index.jsp">Inicio</a>
+            </p>
+            <p>
+              <input type="text" name="txtapellido" value="" /> 
+              Apellido  </br>
+            </p>
+            <p>
+              <input type="text" name="txtedad" value="" /> 
+              Edad  </br> 
+            </p>
+            <p></br>
+              <input type="submit" value="Guardar" name="btguardar" /> 
+              <a href="index.jsp">Inicio</a></p>
             
         </form>
     </body>

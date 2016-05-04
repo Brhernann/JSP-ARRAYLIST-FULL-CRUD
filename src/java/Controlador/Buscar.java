@@ -1,6 +1,5 @@
 
 package Controlador;
-
 import Modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;

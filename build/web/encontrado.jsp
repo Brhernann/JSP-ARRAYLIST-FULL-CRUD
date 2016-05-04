@@ -9,8 +9,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>JSP Page</title>
+    <style type="text/css">
+    body,td,th {
+	color: #0F9;
+}
+body {
+	background-image: url(Imagenes/fondo.jpg);
+}
+    </style>
     </head>
     <body>
         <h1>El usuario ha sido encontrado</h1>
